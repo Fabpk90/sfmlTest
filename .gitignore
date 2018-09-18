@@ -31,3 +31,5 @@
 *.out
 *.app
 /SfmlTest0/Debug
+.vs/
+Debug/
