@@ -9,7 +9,7 @@ public:
 
 	~Actor();
 
-	void update();
+	virtual void update() = 0;
 
 protected:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

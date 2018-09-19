@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "GameWorld.h"
+#include "Actor.h"
 
 //this class will primarily update the game world and handle the window/ui
 
@@ -8,7 +8,9 @@ class GameScene
 {
 private:
 	sf::RenderWindow* window_;
-	GameWorld* world_;
+
+private:
+	std::vector<Actor*> actors_;
 
 
 public:
@@ -19,6 +21,7 @@ public:
 
 	void update();
 
-	sf::RenderWindow& get_window();
+	sf::RenderWindow& getWindow() const;
+	void addActor(Actor*const actor);
 };
 

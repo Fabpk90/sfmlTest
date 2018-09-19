@@ -5,28 +5,41 @@
 GameScene::GameScene()
 {
 	window_ = new sf::RenderWindow();
-	world_ = new GameWorld();
+	
 }
 
 GameScene::GameScene(int width, int height)
 {
 	window_ = new sf::RenderWindow(sf::VideoMode(width, height), "The unknown thing");
-	world_ = new GameWorld();
 }
 
 
 GameScene::~GameScene()
 {
 	delete window_;
-	delete world_;
 }
 
 void GameScene::update()
 {
-	
+	window_->clear();
+
+	for (Actor* actor : actors_)
+	{
+		actor->update();
+	}
+
+	for (Actor* actor : actors_)
+	{
+		window_->draw(*actor);
+	}
 }
 
-sf::RenderWindow& GameScene::get_window()
+sf::RenderWindow& GameScene::getWindow() const
 {
 	return (*window_);
+}
+
+void GameScene::addActor(Actor* const actor)
+{
+	actors_.push_back(actor);
 }
