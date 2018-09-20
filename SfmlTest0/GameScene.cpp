@@ -11,6 +11,7 @@ GameScene::GameScene()
 GameScene::GameScene(int width, int height)
 {
 	window_ = new sf::RenderWindow(sf::VideoMode(width, height), "The unknown thing");
+	window_->setFramerateLimit(60);
 }
 
 
@@ -32,6 +33,8 @@ void GameScene::update()
 	{
 		window_->draw(*actor);
 	}
+
+	window_->display();
 }
 
 sf::RenderWindow& GameScene::getWindow() const
